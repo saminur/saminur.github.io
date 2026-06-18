@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Saminur Islam — PhD Researcher in AI &amp; ML</title>
+  <meta name="description" content="Saminur Islam — CS PhD candidate at NCSU researching agentic AI systems, LLMs, and behavioral modeling. Previously AT&T Labs." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🧠</text></svg>">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #f8fafc;
+      --surface2: #f1f5f9;
+      --border: #e2e8f0;
+      --ink: #0f172a;
+      --ink2: #334155;
+      --muted: #64748b;
+      --brand: #2563eb;
+      --brand-light: #eff6ff;
+      --brand-mid: #bfdbfe;
+      --green: #059669;
+      --green-light: #ecfdf5;
+      --purple: #7c3aed;
+      --purple-light: #f5f3ff;
+      --orange: #ea580c;
+      --orange-light: #fff7ed;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Layout ── */
+    .wrap { max-width: 1020px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── Nav ── */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 0; gap: 16px;
+    }
+    .nav-name { font-weight: 700; font-size: 1rem; color: var(--ink); letter-spacing: -.3px; }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-links a {
+      color: var(--ink2); font-size: .875rem; font-weight: 500;
+      padding: 6px 12px; border-radius: 8px; transition: background .15s;
+    }
+    .nav-links a:hover { background: var(--surface); text-decoration: none; }
+
+    /* ── Hero ── */
+    .hero {
+      display: grid; grid-template-columns: 1fr 360px; gap: 48px;
+      align-items: start; padding: 72px 0 56px;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--brand-light); color: var(--brand);
+      font-size: .8rem; font-weight: 600; letter-spacing: .3px; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 999px; margin-bottom: 18px;
+      border: 1px solid var(--brand-mid);
+    }
+    .hero h1 {
+      font-size: clamp(28px, 4vw, 46px); font-weight: 700; letter-spacing: -.8px;
+      line-height: 1.15; color: var(--ink); margin-bottom: 18px;
+    }
+    .hero h1 span { color: var(--brand); }
+    .hero-bio {
+      font-size: 1.05rem; color: var(--ink2); line-height: 1.75; margin-bottom: 24px;
+    }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .tag {
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--ink2); font-size: .8rem; font-weight: 500;
+      padding: 5px 12px; border-radius: 999px;
+    }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 10px; font-size: .875rem; font-weight: 500;
+      border: 1px solid var(--border); background: var(--bg); color: var(--ink);
+      transition: all .15s; cursor: pointer;
+    }
+    .btn:hover { background: var(--surface); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,.08); text-decoration: none; }
+    .btn-primary { background: var(--brand); color: white; border-color: var(--brand); }
+    .btn-primary:hover { background: #1d4ed8; border-color: #1d4ed8; }
+
+    /* ── Profile card ── */
+    .profile-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 20px; padding: 28px; position: sticky; top: 80px;
+    }
+    .avatar-wrap {
+      width: 88px; height: 88px; border-radius: 14px;
+      background: linear-gradient(135deg, var(--brand), var(--purple));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.2rem; margin-bottom: 16px;
+    }
+    .profile-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 2px; }
+    .profile-card .sub { font-size: .85rem; color: var(--muted); margin-bottom: 16px; }
+    .info-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+    .info-row .icon { font-size: 1rem; margin-top: 1px; flex-shrink: 0; }
+    .info-row p { font-size: .85rem; color: var(--ink2); line-height: 1.5; }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+    .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .stat-box {
+      background: var(--bg); border: 1px solid var(--border); border-radius: 12px;
+      padding: 12px; text-align: center;
+    }
+    .stat-box .num { font-size: 1.4rem; font-weight: 700; color: var(--brand); display: block; }
+    .stat-box .lbl { font-size: .72rem; color: var(--muted); line-height: 1.3; }
+    .social-row { display: flex; gap: 8px; margin-top: 16px; }
+    .social-btn {
+      flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
+      background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+      padding: 8px; font-size: .8rem; font-weight: 500; color: var(--ink2);
+      transition: all .15s;
+    }
+    .social-btn:hover { background: var(--surface2); text-decoration: none; }
+
+    /* ── Sections ── */
+    section { padding: 56px 0; border-top: 1px solid var(--border); }
+    .section-label {
+      font-size: .75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--brand); margin-bottom: 8px;
+    }
+    .section-title { font-size: clamp(20px, 3vw, 28px); font-weight: 700; letter-spacing: -.4px; margin-bottom: 8px; }
+    .section-desc { font-size: .95rem; color: var(--muted); margin-bottom: 32px; }
+
+    /* ── Research cards ── */
+    .research-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .r-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 22px;
+    }
+    .r-icon {
+      width: 42px; height: 42px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; margin-bottom: 14px;
+    }
+    .r-card h4 { font-size: .95rem; font-weight: 600; margin-bottom: 8px; }
+    .r-card p { font-size: .85rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── Experience timeline ── */
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .tl-item { display: grid; grid-template-columns: 120px 1fr; gap: 24px; position: relative; padding-bottom: 32px; }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-item::before {
+      content: ''; position: absolute; left: 119px; top: 6px; bottom: 0;
+      width: 1px; background: var(--border);
+    }
+    .tl-item:last-child::before { display: none; }
+    .tl-date { font-size: .78rem; font-weight: 600; color: var(--muted); text-align: right; padding-top: 4px; line-height: 1.4; }
+    .tl-dot {
+      position: absolute; left: 112px; top: 4px;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: var(--brand); border: 2px solid var(--bg);
+      box-shadow: 0 0 0 2px var(--brand);
+    }
+    .tl-body { padding-left: 8px; }
+    .tl-body h4 { font-size: .95rem; font-weight: 700; margin-bottom: 2px; }
+    .tl-body .org { font-size: .85rem; color: var(--brand); font-weight: 500; margin-bottom: 8px; }
+    .tl-body p { font-size: .85rem; color: var(--ink2); line-height: 1.65; }
+
+    /* ── Projects ── */
+    .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .proj-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 10px;
+    }
+    .proj-head { display: flex; align-items: center; gap: 12px; }
+    .proj-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;
+    }
+    .proj-card h4 { font-size: .95rem; font-weight: 700; margin-bottom: 0; }
+    .proj-card .venue { font-size: .78rem; font-weight: 600; color: var(--muted); }
+    .proj-card p { font-size: .85rem; color: var(--ink2); line-height: 1.6; }
+    .proj-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .proj-tag {
+      font-size: .75rem; font-weight: 500; padding: 3px 10px;
+      border-radius: 999px; border: 1px solid var(--border); color: var(--muted);
+    }
+    .proj-links { display: flex; gap: 8px; margin-top: auto; }
+    .proj-link {
+      font-size: .8rem; font-weight: 500; color: var(--brand);
+      padding: 5px 12px; border: 1px solid var(--brand-mid);
+      border-radius: 8px; background: var(--brand-light);
+      transition: all .15s;
+    }
+    .proj-link:hover { background: var(--brand); color: white; text-decoration: none; }
+
+    /* ── Publications ── */
+    .pub-list { display: flex; flex-direction: column; gap: 14px; }
+    .pub-item {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 18px 20px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .pub-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .pub-badge {
+      font-size: .72rem; font-weight: 700; padding: 3px 9px;
+      border-radius: 999px; letter-spacing: .2px;
+    }
+    .badge-published { background: var(--green-light); color: var(--green); }
+    .badge-review { background: var(--orange-light); color: var(--orange); }
+    .badge-conference { background: var(--brand-light); color: var(--brand); }
+    .badge-poster { background: var(--purple-light); color: var(--purple); }
+    .pub-venue { font-size: .78rem; font-weight: 600; color: var(--muted); }
+    .pub-year { font-size: .78rem; color: var(--muted); }
+    .pub-item h4 { font-size: .9rem; font-weight: 600; color: var(--ink); line-height: 1.45; }
+    .pub-authors { font-size: .8rem; color: var(--muted); line-height: 1.5; }
+    .pub-authors strong { color: var(--ink2); }
+    .pub-link {
+      font-size: .78rem; font-weight: 500; color: var(--brand);
+      display: inline-flex; align-items: center; gap: 4px; margin-top: 2px;
+    }
+
+    /* ── Contact ── */
+    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .contact-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 20px; display: flex; align-items: center; gap: 14px;
+      transition: all .15s;
+    }
+    .contact-card:hover { border-color: var(--brand-mid); background: var(--brand-light); text-decoration: none; }
+    .contact-icon {
+      width: 42px; height: 42px; border-radius: 10px; background: var(--brand-light);
+      display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;
+    }
+    .contact-card .label { font-size: .75rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+    .contact-card .val { font-size: .875rem; font-weight: 500; color: var(--ink); }
+
+    /* ── Footer ── */
+    footer { border-top: 1px solid var(--border); padding: 32px 0; text-align: center; }
+    footer p { font-size: .85rem; color: var(--muted); }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .profile-card { position: static; }
+      .research-grid { grid-template-columns: 1fr; }
+      .project-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .tl-item { grid-template-columns: 90px 1fr; }
+      .tl-item::before { left: 89px; }
+      .tl-dot { left: 82px; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hero { padding: 40px 0 32px; }
+      .stat-row { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Nav ── -->
+  <header>
+    <div class="wrap">
+      <nav>
+        <span class="nav-name">Saminur Islam</span>
+        <div class="nav-links">
+          <a href="#research">Research</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#publications">Publications</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ── Hero ── -->
+    <div class="wrap">
+      <div class="hero">
+        <div>
+          <div class="hero-tag">
+            <span>🎓</span> CS PhD Candidate · NC State University
+          </div>
+          <h1>Building AI agents that work <span>alongside people</span> in the real world.</h1>
+          <p class="hero-bio">
+            I'm a 4th-year PhD student in Computer Science at NC State's
+            <a href="https://research.csc.ncsu.edu/arglab/" target="_blank" rel="noreferrer">ARG Lab</a>,
+            advised by <a href="https://csc.ncsu.edu/people/cflynch/" target="_blank" rel="noreferrer">Dr. Collin F. Lynch</a>.
+            My research focuses on <strong>agentic AI systems</strong> that observe ongoing human behavior and decide
+            when and how to act, grounding these decisions in large-scale behavioral data from real users.
+            I built EclipseMonitor, a production data collection system capturing millions of coding
+            events per semester, and I design and evaluate LLM-based agents that operate inside live
+            programming environments. Last summer I was a Research Intern at <strong>AT&amp;T Labs</strong>,
+            building deep learning pipelines for real-time network monitoring across 10,000+ telecom sites.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Agentic AI Systems</span>
+            <span class="tag">Large Language Models</span>
+            <span class="tag">Behavioral Modeling</span>
+            <span class="tag">Sequential Decision-Making</span>
+            <span class="tag">Educational Data Mining</span>
+          </div>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#publications">📄 Publications</a>
+            <a class="btn" href="assets/cv.pdf" target="_blank">🧾 Download CV</a>
+            <a class="btn" href="mailto:sislam8@ncsu.edu">✉️ Email Me</a>
+          </div>
+        </div>
+
+        <!-- Profile card -->
+        <div class="profile-card">
+          <div class="avatar-wrap">🧑‍💻</div>
+          <h3>Saminur Islam</h3>
+          <p class="sub">PhD Candidate, NC State University</p>
+
+          <div class="info-row">
+            <span class="icon">🏫</span>
+            <p>ARG Lab · Dept. of Computer Science<br>Raleigh, NC, USA</p>
+          </div>
+          <div class="info-row">
+            <span class="icon">🔬</span>
+            <p>Agentic AI, LLMs, Behavioral Data Mining, Time-Series ML</p>
+          </div>
+          <div class="info-row">
+            <span class="icon">📅</span>
+            <p>Expected graduation: Aug 2027</p>
+          </div>
+          <div class="info-row">
+            <span class="icon">💼</span>
+            <p>Open to research internships, Fall 2026 &amp; Summer 2027</p>
+          </div>
+
+          <hr class="divider">
+
+          <div class="stat-row">
+            <div class="stat-box">
+              <span class="num">5–7M</span>
+              <span class="lbl">coding events / semester</span>
+            </div>
+            <div class="stat-box">
+              <span class="num">10k+</span>
+              <span class="lbl">telecom sites monitored</span>
+            </div>
+            <div class="stat-box">
+              <span class="num">7+</span>
+              <span class="lbl">publications &amp; papers</span>
+            </div>
+            <div class="stat-box">
+              <span class="num">3+</span>
+              <span class="lbl">years of research data</span>
+            </div>
+          </div>
+
+          <div class="social-row">
+            <a class="social-btn" href="https://github.com/saminur" target="_blank" rel="noreferrer">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+              GitHub
+            </a>
+            <a class="social-btn" href="https://linkedin.com/in/samibuet120" target="_blank" rel="noreferrer">
+              <svg width="14" height="14" fill="#0a66c2" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg>
+              LinkedIn
+            </a>
+            <a class="social-btn" href="https://scholar.google.com" target="_blank" rel="noreferrer">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+              Scholar
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Research ── -->
+    <section id="research">
+      <div class="wrap">
+        <p class="section-label">What I work on</p>
+        <h2 class="section-title">Research Interests</h2>
+        <p class="section-desc">My work spans three connected areas, from building agents that act inside real environments to modeling behavior at scale.</p>
+        <div class="research-grid">
+          <div class="r-card">
+            <div class="r-icon" style="background:var(--brand-light)">🤖</div>
+            <h4>Agentic AI Systems</h4>
+            <p>Building agents that observe ongoing human behavior and decide when, whether, and how to act. I frame agent intervention as a sequential decision problem grounded in real longitudinal data from live coding environments.</p>
+          </div>
+          <div class="r-card">
+            <div class="r-icon" style="background:var(--green-light)">🧠</div>
+            <h4>LLMs &amp; Behavioral Modeling</h4>
+            <p>Fine-tuning and evaluating LLMs for tasks grounded in real user behavior. My PALMU work identifies and corrects a training-time failure mode in self-training models, with applications to AI agents that improve over time.</p>
+          </div>
+          <div class="r-card">
+            <div class="r-icon" style="background:var(--purple-light)">📊</div>
+            <h4>Large-Scale Data &amp; Time-Series ML</h4>
+            <p>Designing deep learning pipelines for large-scale behavioral and time-series data. At AT&amp;T Labs, I built multivariate anomaly detection over 10,000+ telecom sites with 95% recall and real-time alerting.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Experience ── -->
+    <section id="experience">
+      <div class="wrap">
+        <p class="section-label">Career</p>
+        <h2 class="section-title">Experience</h2>
+        <p class="section-desc">A mix of academic research and industry internships across AI, ML, and software systems.</p>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-date">Aug 2022<br>— Present</div>
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <h4>Graduate Research Assistant</h4>
+              <div class="org">North Carolina State University · ARG Lab</div>
+              <p>Designing agentic AI systems that operate in live coding environments, collecting and analyzing millions of behavioral events per semester, and building LLM-based feedback agents. Advised by Dr. Collin F. Lynch.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">Jun 2025<br>— Aug 2025</div>
+            <div class="tl-dot" style="background:var(--green); box-shadow:0 0 0 2px var(--green)"></div>
+            <div class="tl-body">
+              <h4>Research Intern</h4>
+              <div class="org" style="color:var(--green)">AT&amp;T Labs · Bedminster, NJ</div>
+              <p>Built deep learning pipelines for multivariate time-series monitoring across 10,000+ E911 telecom sites. Replaced a 3-day manual inspection process with real-time anomaly detection achieving 95% recall and 63% fewer false alarms.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">Aug 2020<br>— May 2022</div>
+            <div class="tl-dot" style="background:var(--purple); box-shadow:0 0 0 2px var(--purple)"></div>
+            <div class="tl-body">
+              <h4>Graduate Research Assistant</h4>
+              <div class="org" style="color:var(--purple)">West Virginia University · Morgantown, WV</div>
+              <p>Designed deep learning models for drug-drug interaction discovery using protein sequence-structure similarity networks, achieving up to 98% precision and 99% AUC. Published in Scientific Reports (2025).</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">May 2021<br>— Aug 2021</div>
+            <div class="tl-dot" style="background:var(--muted); box-shadow:0 0 0 2px var(--muted)"></div>
+            <div class="tl-body">
+              <h4>Graduate Intern</h4>
+              <div class="org" style="color:var(--muted)">Highmark Health · Pittsburgh, PA</div>
+              <p>Built a secure file transfer application and worked with cross-functional teams to streamline data workflows.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">Mar 2018<br>— Dec 2019</div>
+            <div class="tl-dot" style="background:var(--orange); box-shadow:0 0 0 2px var(--orange)"></div>
+            <div class="tl-body">
+              <h4>Software Developer</h4>
+              <div class="org" style="color:var(--orange)">LR Global Bangladesh Ltd · Dhaka</div>
+              <p>Built real-time data ingestion and ML pipelines for financial time-series data. Maintained AWS infrastructure with Redis-backed low-latency model inference at scale.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Projects ── -->
+    <section id="projects">
+      <div class="wrap">
+        <p class="section-label">What I've built</p>
+        <h2 class="section-title">Selected Projects</h2>
+        <p class="section-desc">Research systems and applied ML projects spanning coding environments, telecom, and drug discovery.</p>
+        <div class="project-grid">
+          <div class="proj-card">
+            <div class="proj-head">
+              <div class="proj-icon" style="background:var(--brand-light)">🔭</div>
+              <div>
+                <h4>EclipseMonitor</h4>
+                <span class="venue">SIGCSE 2025</span>
+              </div>
+            </div>
+            <p>A production telemetry backend capturing 5–7 million IDE interaction events per semester at millisecond resolution. Records coding, debugging, and help-seeking activity across 30–40 concurrent users per semester over 3+ years.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">Python</span>
+              <span class="proj-tag">PostgreSQL</span>
+              <span class="proj-tag">Real-time pipelines</span>
+              <span class="proj-tag">Eclipse IDE</span>
+            </div>
+            <div class="proj-links">
+              <a class="proj-link" href="https://github.com/ArgLab/EclipseEvents" target="_blank" rel="noreferrer">Code</a>
+              <a class="proj-link" href="https://dl.acm.org/doi/pdf/10.1145/3641555.3705170" target="_blank" rel="noreferrer">Paper</a>
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-head">
+              <div class="proj-icon" style="background:var(--green-light)">🤖</div>
+              <div>
+                <h4>Agentic Tutoring Framework</h4>
+                <span class="venue">Under Review · NeurIPS 2026</span>
+              </div>
+            </div>
+            <p>A process-aware agent that models student behavior over long coding sessions and decides in real time when and how an LLM should intervene. Frames adaptive feedback as a sequential decision problem over longitudinal behavioral data.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">PyTorch</span>
+              <span class="proj-tag">LLMs</span>
+              <span class="proj-tag">Sequential decision-making</span>
+            </div>
+            <div class="proj-links">
+              <a class="proj-link" href="#publications">Paper</a>
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-head">
+              <div class="proj-icon" style="background:var(--orange-light)">📡</div>
+              <div>
+                <h4>E911 Anomaly Detection</h4>
+                <span class="venue">AT&amp;T Labs · 2025</span>
+              </div>
+            </div>
+            <p>Deep learning pipeline for real-time multivariate time-series monitoring across 10,000+ telecom sites. Replaced a 3-day manual process with automated detection achieving 95% recall, 63% fewer false alarms, and under 1 hour MTTR.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">PyTorch</span>
+              <span class="proj-tag">Time-series</span>
+              <span class="proj-tag">Anomaly detection</span>
+              <span class="proj-tag">AWS</span>
+            </div>
+            <div class="proj-links">
+              <a class="proj-link" href="#experience">Overview</a>
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-head">
+              <div class="proj-icon" style="background:var(--purple-light)">💊</div>
+              <div>
+                <h4>PS3N — Drug Interaction Discovery</h4>
+                <span class="venue">Scientific Reports · 2025</span>
+              </div>
+            </div>
+            <p>Multimodal deep learning framework for drug-drug interaction discovery using protein sequence-structure similarity networks. Achieved 98% precision and 99% AUC, generating 26,000+ high-confidence novel interaction predictions.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">Graph Neural Networks</span>
+              <span class="proj-tag">Multimodal DL</span>
+              <span class="proj-tag">Bioinformatics</span>
+            </div>
+            <div class="proj-links">
+              <a class="proj-link" href="https://doi.org/10.1038/s41598-025-14690-w" target="_blank" rel="noreferrer">Paper</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Publications ── -->
+    <section id="publications">
+      <div class="wrap">
+        <p class="section-label">Research output</p>
+        <h2 class="section-title">Publications</h2>
+        <p class="section-desc">Peer-reviewed work across AI, ML, and computing education. <a href="https://scholar.google.com" target="_blank" rel="noreferrer">View full list on Google Scholar →</a></p>
+
+        <div class="pub-list">
+
+          <div class="pub-item">
+            <div class="pub-meta">
+              <span class="pub-badge badge-review">Under Review</span>
+              <span class="pub-badge badge-conference">NeurIPS 2026</span>
+            </div>
+            <h4>PALMU: Correcting the Hidden Cost of Forgetting in Self-Training Models</h4>
+            <p class="pub-authors"><strong>S. Islam</strong>, Z. Gao, and C. Lynch</p>
+          </div>
+
+          <div class="pub-item">
+            <div class="pub-meta">
+              <span class="pub-badge badge-published">Published</span>
+              <span class="pub-badge" style="background:#fef9c3;color:#854d0e">Scientific Reports · 2025</span>
+            </div>
+            <h4>PS3N: Leveraging Protein Sequence-Structure Similarity for Novel Drug-Drug Interaction Discovery</h4>
+            <p class="pub-authors"><strong>S. Islam</strong>, A. Abbasi, N. Agarwal, W. Zheng, G. Doretto, and D. A. Adjeroh</p>
+            <a class="pub-link" href="https://doi.org/10.1038/s41598-025-14690-w" target="_blank" rel="noreferrer">📄 DOI Link</a>
+          </div>
+
+          <div class="pub-item">
+            <div class="pub-meta">
+              <span class="pub-badge badge-review">Under Review</span>
+              <span class="pub-badge" style="background:#fef9c3;color:#854d0e">Journal of Educational Data Mining</span>
+            </div>
+            <h4>Characterizing Student Coding Behaviors from IDE Traces: Unsupervised Clustering of Code Evolution Metrics</h4>
+            <p class="pub-authors"><strong>S. Islam</strong>, Z. Gao, S. Heckman, and C. Lynch</p>
+          </div>
+
+          <div class="pub-item">
+            <div class="pub-meta">
+              <span class="pub-badge badge-review">Under Review</span>
+              <span class="pub-badge" style="background:#fef9c3;color:#854d0e">Journal of Educational Data Mining</span>
+            </div>
+            <h4>Debugging Around Help: An Episode-Level Analysis of Debugging and Help-Seeking Behaviors in Introductory Programming</h4>
+            <p class="pub-authors"><strong>S. Islam</strong>, Z. Gao, V. Patwardhan, S. Heckman, and C. Lynch</p>
+          </div>
+
+          <div class="pub-item">
+            <div class="pub-meta">
+              <span class="pub-badge badge-conference">Conference</span>
+              <span class="pub-badge badge-published">L@S 2025</span>
+            </div>
+            <h4>How Do Undergraduates Interested in Computer Science Use Online, On-Demand CS Coursework?</h4>
+            <p class="pub-authors">S. Gilson, T. Barnes, M. Tamanna, and <strong>S. Islam</strong></p>
+            <a class="pub-link" href="https://dl.acm.org/doi/10.1145/3698205.3733938" target="_blank" rel="noreferrer">📄 ACM Link</a>
+          </div>
+
+          <div class="pub-item">
+            <div class="pub-meta">
+              <span class="pub-badge badge-conference">Conference</span>
+              <span class="pub-badge badge-published">CHI EA 2025</span>
+            </div>
+            <h4>What Does It Take to Support Problem Solving in Programming Classrooms? A New Framework from the K-12 Teacher Perspective</h4>
+            <p class="pub-authors">A. Limke, <strong>S. Islam</strong>, B. Riahi, X. Tian, M. Hill, V. Cateté, and T. Barnes</p>
+            <a class="pub-link" href="https://dl.acm.org/doi/abs/10.1145/3706599.3719763" target="_blank" rel="noreferrer">📄 ACM Link</a>
+          </div>
+
+          <div class="pub-item">
+            <div class="pub-meta">
+              <span class="pub-badge badge-poster">Poster</span>
+              <span class="pub-badge badge-published">SIGCSE 2025</span>
+            </div>
+            <h4>EclipseMonitor: A Real-Time Student Programming Environment Data Collection Tool</h4>
+            <p class="pub-authors"><strong>S. Islam</strong>, Z. Gao, J. Bacher, G. Silva De Oliveira, V. Patwardhan, S. Heckman, and C. Lynch</p>
+            <a class="pub-link" href="https://dl.acm.org/doi/pdf/10.1145/3641555.3705170" target="_blank" rel="noreferrer">📄 ACM Link</a>
+          </div>
+
+          <div class="pub-item">
+            <div class="pub-meta">
+              <span class="pub-badge badge-published">Published</span>
+              <span class="pub-badge badge-conference">IEEE Access · 2023</span>
+            </div>
+            <h4>A Survey on Consensus Algorithms in Blockchain-based Applications: Architecture, Taxonomy, and Operational Issues</h4>
+            <p class="pub-authors"><strong>S. Islam</strong>, M. J. Islam, M. Hossain, S. Noor, K. Kwak, and S. M. R. Islam</p>
+            <a class="pub-link" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10101789" target="_blank" rel="noreferrer">📄 IEEE Link</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Contact ── -->
+    <section id="contact">
+      <div class="wrap">
+        <p class="section-label">Get in touch</p>
+        <h2 class="section-title">Contact</h2>
+        <p class="section-desc">I'm open to research collaborations, internship opportunities, and paper reviews. Feel free to reach out.</p>
+        <div class="contact-grid">
+          <a class="contact-card" href="mailto:sislam8@ncsu.edu">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <div class="label">Email</div>
+              <div class="val">sislam8@ncsu.edu</div>
+            </div>
+          </a>
+          <a class="contact-card" href="https://linkedin.com/in/samibuet120" target="_blank" rel="noreferrer">
+            <div class="contact-icon">💼</div>
+            <div>
+              <div class="label">LinkedIn</div>
+              <div class="val">linkedin.com/in/samibuet120</div>
+            </div>
+          </a>
+          <a class="contact-card" href="https://github.com/saminur" target="_blank" rel="noreferrer">
+            <div class="contact-icon">💻</div>
+            <div>
+              <div class="label">GitHub</div>
+              <div class="val">github.com/saminur</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>© <span id="yr"></span> Saminur Islam · NC State University · Built with care.</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>
